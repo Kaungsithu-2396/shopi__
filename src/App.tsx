@@ -1,12 +1,9 @@
 import "./App.css";
-
+import AppContainer from "./components/AppContainer";
 function App() {
     return (
         <>
-            <h1 className=" font-bold tracking-widest p-10 text-xl ">
-                Shopaholic
-            </h1>
-           
+            <AppContainer />
         </>
     );
 }
