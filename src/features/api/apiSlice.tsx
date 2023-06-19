@@ -1,17 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const productsAPI = createApi({
-    reducerPath: "loadAllProducts",
-    baseQuery: fetchBaseQuery({ baseUrl: `https://fakestoreapi.com/` }),
+    reducerPath: "products",
+    baseQuery: fetchBaseQuery({ baseUrl: `https://fakestoreapi.com` }),
     tagTypes: ["products"],
     endpoints: (builder) => ({
-        getAllProducts: builder.query({
-            query: () => "products",
-        }),
-        getAllCategories: builder.query({
-            query: () => "products/categories",
+        getFeaturedProducts: builder.query({
+            query: () => "/products?limit=4",
+            providesTags: ["products"],
         }),
     }),
 });
-export const { useGetAllProductsQuery, useGetAllCategoriesQuery } =
-    productsAPI;
 export default productsAPI;
+export const { useGetFeaturedProductsQuery } = productsAPI;

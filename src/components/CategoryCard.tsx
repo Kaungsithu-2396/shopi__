@@ -1,5 +1,11 @@
 import Lottie from "lottie-react";
-function CategoryCard({ title, subTitle, color, animation }: any) {
+interface categoryType {
+    title: string;
+    subTitle: string;
+    color: string;
+    animation: Object;
+}
+function CategoryCard({ title, subTitle, color, animation }: categoryType) {
     return (
         <>
             <section

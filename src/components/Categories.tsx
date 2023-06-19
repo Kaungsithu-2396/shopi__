@@ -25,28 +25,24 @@ function Categories() {
                     subTitle={"Wear Authentic"}
                     color={"bg-yellow-500"}
                     animation={MenFashion}
-                    width={""}
                 />{" "}
                 <CategoryCard
                     title={"Women Fashion"}
                     subTitle={"Don't miss modernized fits "}
                     color={"bg-red-200"}
                     animation={womenFashion}
-                    width={""}
                 />{" "}
                 <CategoryCard
                     title={"Electriciy"}
                     subTitle={"World's safest item collection"}
                     color={"bg-amber-300"}
                     animation={electricity}
-                    width={""}
                 />
                 <CategoryCard
                     title={"Jewellery"}
                     subTitle={"Gorgeous Accessories "}
                     color={"bg-lime-300"}
                     animation={jewellery}
-                    width={""}
                 />
             </div>
         </>
