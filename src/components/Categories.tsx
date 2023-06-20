@@ -1,14 +1,18 @@
-import Lottie from "lottie-react";
 import MenFashion from "../assets/99745-sales-man.json";
 import womenFashion from "../assets/64325-young-girl-style-walk-loop.json";
 import electricity from "../assets/89481-plug-outlet.json";
 import jewellery from "../assets/38462-necklace-animation.json";
 import CategoryCard from "./CategoryCard";
+import SearchBar from "./SearchBar";
+
 function Categories() {
     return (
         <>
-            <div className="flex m-5">
-                {/* <section className="flex justify-around w-full border-black bg-lime-500  rounded-md  items-center m-5 ">
+            <div className="w-5/6 m-auto block md:hidden">
+                <SearchBar />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 mt-5 xl:grid-cols-4 gap-2 w-5/6 m-auto lg:w-fit lg:gap-4 lg:m-5">
+                {/* <section className="flex justify-around w-full border-black col-span-2 bg-lime-500  rounded-md  items-center m-5 ">
                     <div className="p-5">
                         <h1 className=" font-bold ">Men's Fashion</h1>
                         <h1 className="">Don't miss modernized Clothes</h1>
@@ -33,16 +37,16 @@ function Categories() {
                     animation={womenFashion}
                 />{" "}
                 <CategoryCard
-                    title={"Electriciy"}
-                    subTitle={"World's safest item collection"}
-                    color={"bg-amber-300"}
-                    animation={electricity}
-                />
-                <CategoryCard
                     title={"Jewellery"}
                     subTitle={"Gorgeous Accessories "}
                     color={"bg-lime-300"}
                     animation={jewellery}
+                />
+                <CategoryCard
+                    title={"Electriciy"}
+                    subTitle={"World's safest item collection"}
+                    color={"bg-amber-300"}
+                    animation={electricity}
                 />
             </div>
         </>

@@ -1,10 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Libre Franklin", sans-serif;
 }
+/* #root div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+} */
 .number__display {
     display: flex;
     justify-content: center;

@@ -6,6 +6,7 @@ function SearchBar() {
                 name=""
                 className="   rounded-md px-4 lg:w-[30rem] py-3 border text-xl border-black"
                 id=""
+                autoFocus
                 placeholder="&#x1F50D;  Search Product"
             />
         </div>

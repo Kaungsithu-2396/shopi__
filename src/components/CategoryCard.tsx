@@ -1,20 +1,21 @@
 import Lottie from "lottie-react";
-interface categoryType {
-    title: string;
-    subTitle: string;
-    color: string;
-    animation: Object;
-}
-function CategoryCard({ title, subTitle, color, animation }: categoryType) {
+import { categoryType } from "../app/types";
+function CategoryCard({
+    title,
+    subTitle,
+    color,
+    animation,
+    colWidth,
+}: categoryType) {
     return (
         <>
             <section
-                className={`flex justify-center w-full   ${color}     rounded-md  items-center m-3 `}
+                className={`flex justify-center w-full ${colWidth}   ${color}     rounded-md  items-center `}
             >
                 <div className="p-5">
-                    <h1 className=" font-bold text-2xl ">{title}</h1>
+                    <h1 className=" font-bold text-xl md:text-2xl ">{title}</h1>
                     <h1 className="text-sm">{subTitle} </h1>
-                    <button className="border-2 border-black rounded px-3 py-1 mt-3">
+                    <button className=" border border-black/40 rounded px-3 py-1 mt-3">
                         Explore
                     </button>
                 </div>
