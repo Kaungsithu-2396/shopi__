@@ -10,6 +10,7 @@ export interface productCard {
         rate: number;
         count: number;
     };
+    count: number;
 }
 export interface productCollection {
     items: Array<productCard>;

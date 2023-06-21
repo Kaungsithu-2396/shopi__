@@ -4,14 +4,14 @@ import {
     loadFeatureProducts,
     selectError,
     selectStatus,
-    selectFeaturedProducts,
+    selectRelatedProducts,
 } from "../features/Products/loadProductSlice";
 import ProductCard from "./ProductCard";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 
 function FeaturedProducts() {
     const dispatch = useAppDispatch();
-    const featuredProducts = useAppSelector(selectFeaturedProducts);
+    const featuredProducts = useAppSelector(selectRelatedProducts);
     const getError = useAppSelector(selectError);
     const getStatus = useAppSelector(selectStatus);
     useEffect(() => {
@@ -20,7 +20,7 @@ function FeaturedProducts() {
 
     return (
         <>
-            <h1 className="text-center text-3xl font-bold mt-10   ">
+            <h1 className="text-center text-3xl font-bold mt-10 mb-5   ">
                 <span className="text-orange-500 tracking-widest">Feature</span>{" "}
                 Products
             </h1>
