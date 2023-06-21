@@ -11,6 +11,13 @@ export interface productCard {
         count: number;
     };
 }
+export interface productCollection {
+    items: Array<productCard>;
+}
+export interface showAPIStage extends productCollection {
+    isLoading: boolean;
+    error: null | boolean;
+}
 export interface categoryType {
     title: string;
     subTitle: string;
