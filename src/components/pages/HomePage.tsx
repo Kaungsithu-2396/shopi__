@@ -27,29 +27,32 @@ function Home() {
                     subTitle={"Wear Authentic"}
                     color={"bg-yellow-500"}
                     animation={MenFashion}
+                    pageTo="men's clothing"
                 />{" "}
                 <CategoryCard
                     title={"Women Fashion"}
                     subTitle={"Don't miss modernized fits "}
                     color={"bg-red-200"}
                     animation={womenFashion}
+                    pageTo="women's clothing"
                 />{" "}
                 <CategoryCard
-                    title={"Jewellery"}
+                    title={"Jewelery"}
                     subTitle={"Gorgeous Accessories "}
                     color={"bg-lime-300"}
                     animation={jewellery}
+                    pageTo="jewelery"
                 />
                 <CategoryCard
-                    title={"Electriciy"}
+                    title={"Electronic"}
                     subTitle={"World's safest item collection"}
                     color={"bg-amber-300"}
                     animation={electricity}
+                    pageTo="electronics"
                 />
             </div>
 
             <FeaturedProducts />
-           
         </>
     );
 }

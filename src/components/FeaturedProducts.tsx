@@ -8,6 +8,7 @@ import {
 } from "../features/Products/loadProductSlice";
 import ProductCard from "./ProductCard";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
+import Loading from "./Loading";
 
 function FeaturedProducts() {
     const dispatch = useAppDispatch();
@@ -25,9 +26,9 @@ function FeaturedProducts() {
                 Products
             </h1>
             <section className=" grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-4 w-11/12 m-auto xl:py-5">
-                {getStatus && <h1>loading...</h1>}
+                {getStatus && <Loading />}
                 {getError && <h1>Error...</h1>}
-                {featuredProducts &&
+                {!getStatus &&
                     featuredProducts?.map((el: productCard) => {
                         return <ProductCard key={el.id} {...el} id={el.id} />;
                     })}

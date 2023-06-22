@@ -21,9 +21,27 @@ const cartSlice = createSlice({
                 state.items.push(newProductToAdd);
             }
         },
+        countItemInc(state, action) {
+            const addItem = state.items.find(
+                (el) => el.id == action.payload.id
+            );
+            if (addItem) {
+                addItem.count += 1;
+            }
+
+            // addItem[0].price = initialVal * addItem[0].count;
+            // state.items[action.payload.id].count += 1;
+        },
+        countItemDec(state, action) {
+            const reduceItem = state.items.filter(
+                (el) => el.id == action.payload
+            );
+            reduceItem[0].count -= 1;
+            reduceItem[0].price *= reduceItem[0].count;
+        },
     },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, countItemInc, countItemDec } = cartSlice.actions;
 export const getAllCartItems = (state: RootState) => state.addToCart.items;
 export default cartSlice.reducer;

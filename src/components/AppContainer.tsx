@@ -9,12 +9,14 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import Footer from "./Footer";
+import CategorizedItems from "./pages/CategorizedItems";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<NavBar />}>
             <Route index element={<Home />} />
             <Route path="/cartItems" element={<CartItems />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/category/:name" element={<CategorizedItems />} />
             {/* <Route path="/products" element={<Products/>} */}
         </Route>
     )

@@ -6,7 +6,9 @@ import { useAppDispatch } from "../app/hooks";
 function ProductCard(el: productCard) {
     const dispatch = useAppDispatch();
     const handler = () => {
-        dispatch(addToCart(el));
+        const addCartItem = { ...el, originalPriceVal: el.price };
+
+        dispatch(addToCart(addCartItem));
     };
     return (
         <>

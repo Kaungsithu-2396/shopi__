@@ -25,6 +25,16 @@ export const loadAllProducts = createAsyncThunk(
         return data;
     }
 );
+export const loadCategorizedProducts = createAsyncThunk(
+    "cart/loadCategorizedProducts",
+    async (category: string | undefined) => {
+        const response = await fetch(
+            `https://fakestoreapi.com/products/category/${category}`
+        );
+        const data = await response.json();
+        return data;
+    }
+);
 export const featureProducts = createSlice({
     name: "featureProducts",
     initialState,
@@ -33,6 +43,7 @@ export const featureProducts = createSlice({
         builder.addCase(loadFeatureProducts.pending, (state) => {
             state.isLoading = true;
         });
+
         builder.addCase(loadFeatureProducts.fulfilled, (state, action) => {
             (state.isLoading = false), (state.items = action.payload);
             return state;
@@ -47,6 +58,17 @@ export const featureProducts = createSlice({
         builder.addCase(loadAllProducts.fulfilled, (state, action) => {
             state.isLoading = false;
             state.items = action.payload;
+        });
+        builder.addCase(loadCategorizedProducts.pending, (state) => {
+            state.isLoading = true;
+        });
+        builder.addCase(loadCategorizedProducts.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.items = action.payload;
+        });
+        builder.addCase(loadCategorizedProducts.rejected, (state) => {
+            state.isLoading = false;
+            state.error = true;
         });
     },
 });

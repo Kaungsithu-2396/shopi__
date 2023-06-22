@@ -14,6 +14,7 @@ export interface productCard {
 }
 export interface productCollection {
     items: Array<productCard>;
+    originalPriceVal?: number;
 }
 export interface showAPIStage extends productCollection {
     isLoading: boolean;
@@ -25,4 +26,9 @@ export interface categoryType {
     color: string;
     animation: Object;
     colWidth?: string;
+    pageTo: string;
+}
+export interface cartPriceType {
+    id: number;
+    price: number;
 }
