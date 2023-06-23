@@ -2,6 +2,7 @@ import NavBar from "./NavBar";
 import Home from "./pages/HomePage";
 import CartItems from "./pages/CartItems";
 import Products from "./pages/Products";
+import NoCartItem from "./pages/NoCartItem";
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
             <Route path="/cartItems" element={<CartItems />} />
             <Route path="/products" element={<Products />} />
             <Route path="/category/:name" element={<CategorizedItems />} />
+            <Route path="/NoCartItem" element={<NoCartItem />} />
             {/* <Route path="/products" element={<Products/>} */}
         </Route>
     )

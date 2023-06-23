@@ -5,8 +5,12 @@ import { useAppDispatch } from "../app/hooks";
 // function ProductCard({ image, title, price, id }: productCard) {
 function ProductCard(el: productCard) {
     const dispatch = useAppDispatch();
+
     const handler = () => {
-        const addCartItem = { ...el, originalPriceVal: el.price };
+        const addCartItem = {
+            ...el,
+            // total: el.price,
+        };
 
         dispatch(addToCart(addCartItem));
     };

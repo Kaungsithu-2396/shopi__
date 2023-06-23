@@ -22,22 +22,18 @@ const cartSlice = createSlice({
             }
         },
         countItemInc(state, action) {
-            const addItem = state.items.find(
-                (el) => el.id == action.payload.id
-            );
+            const addItem = state.items.find((el) => el.id == action.payload);
             if (addItem) {
                 addItem.count += 1;
             }
-
-            // addItem[0].price = initialVal * addItem[0].count;
-            // state.items[action.payload.id].count += 1;
         },
         countItemDec(state, action) {
-            const reduceItem = state.items.filter(
+            const reduceItem = state.items.find(
                 (el) => el.id == action.payload
             );
-            reduceItem[0].count -= 1;
-            reduceItem[0].price *= reduceItem[0].count;
+            if (reduceItem) {
+                reduceItem.count -= 1;
+            }
         },
     },
 });

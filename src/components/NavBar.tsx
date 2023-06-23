@@ -33,7 +33,11 @@ function NavBar() {
                         <Link to={"/products"}>Products</Link>
                     </h1>
                     <Link
-                        to={"/cartItems"}
+                        to={`${
+                            cartItemsCount.length === 0
+                                ? "/NoCartItem"
+                                : "/cartItems"
+                        }`}
                         className="font-bold relative cursor-pointer hover:scale-125 duration-300 hover:transistion-all "
                     >
                         <div className="text-4xl">

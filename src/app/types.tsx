@@ -5,7 +5,7 @@ export interface productCard {
     description: string;
     category: string;
     image: string;
-
+    total: number;
     rating: {
         rate: number;
         count: number;
@@ -14,7 +14,8 @@ export interface productCard {
 }
 export interface productCollection {
     items: Array<productCard>;
-    originalPriceVal?: number;
+
+    // originalPriceVal?: number;
 }
 export interface showAPIStage extends productCollection {
     isLoading: boolean;
@@ -30,5 +31,5 @@ export interface categoryType {
 }
 export interface cartPriceType {
     id: number;
-    price: number;
+    totalAsCount: number;
 }

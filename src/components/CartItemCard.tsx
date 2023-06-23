@@ -1,20 +1,19 @@
 import { BsArrowUpSquareFill, BsArrowDownSquareFill } from "react-icons/bs";
-import { cartPriceType, productCard } from "../app/types";
+import { productCard } from "../app/types";
 import { countItemDec, countItemInc } from "../features/cartItems/cartSlice";
 import { useAppDispatch } from "../app/hooks";
-import { useState } from "react";
+
 function CartItemCard({ image, count, price, id }: productCard) {
     const dispatch = useAppDispatch();
-    const [itemPrice] = useState(price);
-    const addItemCountHandler = ({ id, price }: cartPriceType) => {
-        dispatch(countItemInc({ id, price }));
+    const addItemCountHandler = (id: number) => {
+        dispatch(countItemInc(id));
     };
     const decCountHandler = (id: number) => {
         count - 1 > 0 && dispatch(countItemDec(id));
     };
     return (
         <>
-            <div className="grid grid-cols-4 md:gap-8   justify-center items-center bg-white p-5 ">
+            <div className="grid grid-cols-4 md:gap-8 gap-5   justify-center items-center bg-white p-5 ">
                 <div className="xl:w-[40%]  m-auto">
                     <img
                         src={image}
@@ -25,7 +24,7 @@ function CartItemCard({ image, count, price, id }: productCard) {
                 <div className="flex flex-col md:flex-row  items-center justify-center gap-2 md:gap-5">
                     <button
                         className="  md:text-4xl text-3xl "
-                        onClick={() => addItemCountHandler({ id, price })}
+                        onClick={() => addItemCountHandler(id)}
                     >
                         <BsArrowUpSquareFill />
                     </button>
@@ -38,10 +37,12 @@ function CartItemCard({ image, count, price, id }: productCard) {
                     </button>
                 </div>
                 <div className="text-center">
-                    <h1>{Number(itemPrice) * count} $</h1>
+                    <h1 className="text-sm md:text-base">
+                        {(price * count).toFixed(2)} $
+                    </h1>
                 </div>
-                <div className="">
-                    <button>Delete</button>
+                <div className="text-xl">
+                    <button className=" text-lg md:text-base">Delete</button>
                 </div>
             </div>
             <hr />
