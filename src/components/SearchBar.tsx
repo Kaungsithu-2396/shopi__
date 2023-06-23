@@ -1,8 +1,20 @@
 import { useNavigate } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+import { searchCartItem } from "../features/Products/loadProductSlice";
+
 function SearchBar() {
+    const dispatch = useAppDispatch();
+    const getOrgItems = useAppSelector(
+        (state) => state.loadProducts.originalItems
+    );
+
     const navigate = useNavigate();
-    const onChangeHandler = () => {
+    const onChangeHandler = (e: any) => {
         navigate("/products");
+        console.log(e.target.value);
+        dispatch(
+            searchCartItem({ searchVal: e.target.value, orgItems: getOrgItems })
+        );
     };
     return (
         <div>

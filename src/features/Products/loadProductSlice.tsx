@@ -2,8 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { showAPIStage } from "../../app/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+import { act } from "react-dom/test-utils";
+
 const initialState: showAPIStage = {
     items: [],
+    originalItems: [],
     isLoading: false,
     error: null,
 };
@@ -38,15 +41,29 @@ export const loadCategorizedProducts = createAsyncThunk(
 export const featureProducts = createSlice({
     name: "featureProducts",
     initialState,
-    reducers: {},
+    reducers: {
+        searchCartItem: (state, action) => {
+            const result = state.items.filter((el) =>
+                el.title
+                    .toLowerCase()
+                    .includes(action.payload.searchVal.toLowerCase())
+            );
+
+            if (action.payload.searchVal == "" || result.length === 0) {
+                state.items = action.payload.orgItems;
+            } else {
+                state.items = result;
+            }
+        },
+    },
     extraReducers: (builder) => {
         builder.addCase(loadFeatureProducts.pending, (state) => {
             state.isLoading = true;
         });
 
         builder.addCase(loadFeatureProducts.fulfilled, (state, action) => {
-            (state.isLoading = false), (state.items = action.payload);
-            return state;
+            state.isLoading = false;
+            state.items = action.payload;
         });
         builder.addCase(loadFeatureProducts.rejected, (state) => {
             state.error = true;
@@ -58,6 +75,7 @@ export const featureProducts = createSlice({
         builder.addCase(loadAllProducts.fulfilled, (state, action) => {
             state.isLoading = false;
             state.items = action.payload;
+            state.originalItems = [...state.items];
         });
         builder.addCase(loadCategorizedProducts.pending, (state) => {
             state.isLoading = true;
@@ -72,6 +90,7 @@ export const featureProducts = createSlice({
         });
     },
 });
+export const { searchCartItem } = featureProducts.actions;
 export const selectStatus = (state: RootState) => state.loadProducts.isLoading;
 export const selectError = (state: RootState) => state.loadProducts.error;
 export const selectRelatedProducts = (state: RootState) =>

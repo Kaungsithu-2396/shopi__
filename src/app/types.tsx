@@ -20,6 +20,7 @@ export interface productCollection {
 export interface showAPIStage extends productCollection {
     isLoading: boolean;
     error: null | boolean;
+    originalItems: Array<productCard>;
 }
 export interface categoryType {
     title: string;
