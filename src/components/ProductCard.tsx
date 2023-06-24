@@ -42,7 +42,7 @@ function ProductCard(el: productCard) {
                     <h1 className="text-center text-xl  text-black/50">
                         {el.title.slice(0, 20)}
                     </h1>
-                    <Link to={`detail/${el.id}`}>
+                    <Link to={`/detail/${el.id}`}>
                         <h1 className="w-[70%]  m-auto hover:underline transistion-all duration-300">
                             View More
                         </h1>
