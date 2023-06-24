@@ -10,7 +10,10 @@ import { productCard } from "../../app/types";
 function ProductDetail() {
     const dispatch = useAppDispatch();
     const { id } = useParams();
-    const getAllProducts = useAppSelector(selectRelatedProducts);
+    const getAllProducts = useAppSelector(
+        (state) => state.loadProducts.originalItems
+    );
+    console.log(getAllProducts);
     useEffect(() => {
         dispatch(loadAllProducts());
     }, []);

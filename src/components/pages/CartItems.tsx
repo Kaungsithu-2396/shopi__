@@ -3,15 +3,13 @@ import { useAppSelector } from "../../app/hooks";
 import CartItemCard from "../CartItemCard";
 import { productCard } from "../../app/types";
 import { useNavigate } from "react-router-dom";
-import { checkout } from "../../features/cartItems/cartSlice";
-import { useAppDispatch } from "../../app/hooks";
 
+import { useAppDispatch } from "../../app/hooks";
 
 import { useEffect } from "react";
 
 function CartItems() {
     const navigate = useNavigate();
-    const dispatch = useAppDispatch();
     const cartItems = useAppSelector(getAllCartItems);
     const cartItemsPriceCollection = cartItems.map((el) => el.price * el.count);
     const totalAmount = cartItemsPriceCollection.reduce((acc, value) => {
@@ -19,8 +17,7 @@ function CartItems() {
     }, 0);
     const showToast = () => {
         alert("Checkout Success");
-        dispatch(checkout());
-        // navigate("/products");
+        navigate("/products");
     };
     useEffect(() => {
         if (cartItems.length == 0) {

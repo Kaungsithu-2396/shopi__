@@ -12,6 +12,7 @@ import {
 
 import CategorizedItems from "./pages/CategorizedItems";
 import ProductDetail from "./pages/ProductDetail";
+import Page from "./pages/Page";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<NavBar />}>
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
             <Route path="/cartItems" element={<CartItems />} />
             <Route path="/products" element={<Products />} />
             <Route path="/detail/:id" element={<ProductDetail />} />
+            <Route path="/test" element={<Page />} />
             <Route path="/category/:name" element={<CategorizedItems />} />
             <Route path="/NoCartItem" element={<NoCartItem />} />
             {/* <Route path="/products" element={<Products/>} */}
