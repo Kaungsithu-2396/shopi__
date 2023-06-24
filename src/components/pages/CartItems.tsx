@@ -4,7 +4,6 @@ import CartItemCard from "../CartItemCard";
 import { productCard } from "../../app/types";
 import { useNavigate } from "react-router-dom";
 
-import { useAppDispatch } from "../../app/hooks";
 
 import { useEffect } from "react";
 

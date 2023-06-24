@@ -1,8 +1,5 @@
 import { useParams } from "react-router-dom";
-import {
-    loadAllProducts,
-    selectRelatedProducts,
-} from "../../features/Products/loadProductSlice";
+import { loadAllProducts } from "../../features/Products/loadProductSlice";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { useEffect } from "react";
 import { addToCart } from "../../features/cartItems/cartSlice";
