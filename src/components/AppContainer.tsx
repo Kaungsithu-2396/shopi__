@@ -9,7 +9,7 @@ import {
     Route,
     RouterProvider,
 } from "react-router-dom";
-import Footer from "./Footer";
+
 import CategorizedItems from "./pages/CategorizedItems";
 import ProductDetail from "./pages/ProductDetail";
 const router = createBrowserRouter(
@@ -30,7 +30,6 @@ export default function AppContainer() {
     return (
         <div className="flex flex-col   gap-6 md:gap-14 xl:gap-6">
             <RouterProvider router={router} />
-            {/* <Footer /> */}
         </div>
     );
 }

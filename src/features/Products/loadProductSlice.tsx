@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { showAPIStage } from "../../app/types";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
-import { act } from "react-dom/test-utils";
 
 const initialState: showAPIStage = {
     items: [],
