@@ -49,7 +49,7 @@ export const featureProducts = createSlice({
                     .includes(action.payload.searchVal.toLowerCase())
             );
 
-            if (action.payload.searchVal == "" || result.length === 0) {
+            if (action.payload.searchVal == "") {
                 state.items = action.payload.orgItems;
             } else {
                 state.items = result;

@@ -14,17 +14,25 @@ const cartSlice = createSlice({
             const verifyDuplicatedItem = state.items.findIndex(
                 (el) => el.id === action.payload.id
             );
-            if (verifyDuplicatedItem >= 0) {
-                state.items[verifyDuplicatedItem].count += 1;
-            } else {
+            if (!(verifyDuplicatedItem >= 0)) {
                 const newProductToAdd = { ...action.payload, count: 1 };
                 state.items.push(newProductToAdd);
+            } else {
+                state.items[verifyDuplicatedItem].count += 1;
             }
+        },
+        delCartItem: (state, action) => {
+            const delItem = state.items.filter(
+                (el) => el.id !== action.payload.id
+            );
+            state.items = delItem;
         },
         countItemInc(state, action) {
             const addItem = state.items.find((el) => el.id == action.payload);
-            if (addItem) {
+            if (addItem && addItem?.count < addItem?.rating?.count) {
                 addItem.count += 1;
+            } else {
+                alert("out of stock");
             }
         },
         countItemDec(state, action) {
@@ -35,9 +43,13 @@ const cartSlice = createSlice({
                 reduceItem.count -= 1;
             }
         },
+        checkout(state) {
+            state.items = [];
+        },
     },
 });
 
-export const { addToCart, countItemInc, countItemDec } = cartSlice.actions;
+export const { addToCart, countItemInc, countItemDec, delCartItem,checkout } =
+    cartSlice.actions;
 export const getAllCartItems = (state: RootState) => state.addToCart.items;
 export default cartSlice.reducer;

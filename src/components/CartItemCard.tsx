@@ -2,11 +2,15 @@ import { BsArrowUpSquareFill, BsArrowDownSquareFill } from "react-icons/bs";
 import { productCard } from "../app/types";
 import { countItemDec, countItemInc } from "../features/cartItems/cartSlice";
 import { useAppDispatch } from "../app/hooks";
+import { delCartItem } from "../features/cartItems/cartSlice";
 
 function CartItemCard({ image, count, price, id }: productCard) {
     const dispatch = useAppDispatch();
     const addItemCountHandler = (id: number) => {
         dispatch(countItemInc(id));
+    };
+    const deleteCartItemHandler = (id: number) => {
+        dispatch(delCartItem({ id }));
     };
     const decCountHandler = (id: number) => {
         count - 1 > 0 && dispatch(countItemDec(id));
@@ -42,7 +46,13 @@ function CartItemCard({ image, count, price, id }: productCard) {
                     </h1>
                 </div>
                 <div className="text-xl">
-                    <button className=" text-lg md:text-base">Delete</button>
+                    {" "}
+                    <button
+                        className=" text-lg md:text-base"
+                        onClick={() => deleteCartItemHandler(id)}
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
             <hr />

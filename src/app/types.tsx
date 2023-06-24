@@ -14,8 +14,6 @@ export interface productCard {
 }
 export interface productCollection {
     items: Array<productCard>;
-
-    // originalPriceVal?: number;
 }
 export interface showAPIStage extends productCollection {
     isLoading: boolean;
