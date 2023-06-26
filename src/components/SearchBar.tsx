@@ -11,7 +11,6 @@ function SearchBar() {
     const navigate = useNavigate();
     const onChangeHandler = (e: any) => {
         navigate("/products");
-        console.log(e.target.value);
         dispatch(
             searchCartItem({ searchVal: e.target.value, orgItems: getOrgItems })
         );

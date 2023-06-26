@@ -42,7 +42,6 @@ export const featureProducts = createSlice({
     initialState,
     reducers: {
         searchCartItem: (state, action) => {
-            console.log(action.payload.searchVal);
             const result = state.originalItems.filter((el) =>
                 el.title
                     .toLowerCase()

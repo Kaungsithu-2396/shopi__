@@ -8,6 +8,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import ProductCard from "../ProductCard";
 import Loading from "../Loading";
+import NoItemFound from "../NoItemFound";
 
 function Products() {
     const dispatch = useAppDispatch();
@@ -24,9 +25,10 @@ function Products() {
                 {statusInfo && <Loading />}
                 {getError && <h1>Error..</h1>}
                 {!statusInfo &&
-                    getAllProducts.map((el) => {
+                    getAllProducts?.map((el) => {
                         return <ProductCard key={el.id} {...el} />;
                     })}
+                {getAllProducts.length === 0 && <NoItemFound />}
             </div>
         </>
     );
