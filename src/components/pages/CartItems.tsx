@@ -4,7 +4,6 @@ import CartItemCard from "../CartItemCard";
 import { productCard } from "../../app/types";
 import { useNavigate } from "react-router-dom";
 
-
 import { useEffect } from "react";
 
 function CartItems() {
@@ -14,9 +13,11 @@ function CartItems() {
     const totalAmount = cartItemsPriceCollection.reduce((acc, value) => {
         return acc + value;
     }, 0);
+
     const showToast = () => {
         alert("Checkout Success");
-        navigate("/products");
+        location.reload();
+        // navigate("/products");
     };
     useEffect(() => {
         if (cartItems.length == 0) {
