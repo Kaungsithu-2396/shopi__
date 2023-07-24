@@ -1,5 +1,7 @@
 import { getAllCartItems } from "../../features/cartItems/cartSlice";
 import { useAppSelector } from "../../app/hooks";
+import { emptyItems } from "../../features/cartItems/cartSlice";
+import { useAppDispatch } from "../../app/hooks";
 import CartItemCard from "../CartItemCard";
 import { productCard } from "../../app/types";
 import { useNavigate } from "react-router-dom";
@@ -8,7 +10,8 @@ import { useEffect } from "react";
 
 function CartItems() {
     const navigate = useNavigate();
-    const cartItems = useAppSelector(getAllCartItems);
+    const dispatch = useAppDispatch();
+    var cartItems = useAppSelector(getAllCartItems);
     const cartItemsPriceCollection = cartItems.map((el) => el.price * el.count);
     const totalAmount = cartItemsPriceCollection.reduce((acc, value) => {
         return acc + value;
@@ -16,8 +19,8 @@ function CartItems() {
 
     const showToast = () => {
         alert("Checkout Success");
-        location.reload();
-        // navigate("/products");
+        dispatch(emptyItems());
+        navigate("/products");
     };
     useEffect(() => {
         if (cartItems.length == 0) {
